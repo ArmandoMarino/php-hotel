@@ -40,9 +40,23 @@
 
     ];
 
+$select_parking = $_GET['select-parking'] ?? '';
 
 
-    ?>
+$has_parking = false;
+    
+if (array_key_exists("parking", $hotels) ){
+    $has_parking = true;
+}
+
+$has_parking = false;
+
+if (array_key_exists("parking", $hotels) ){
+    $has_parking = true;
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +69,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
-<body>
+<body class="container">
+
+<form action="" method="GET">
+    <h4>Filtra gli Hotel con parcheggio o senza</h4>
+    <select name="select-parking" class="form-select" >
+        <option selected>---</option>
+        <option value="parking" >Con parcheggio</option>
+        <option value="no-parking">Senza parcheggio</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Cerca</button>
+</form>
 
 
 
@@ -70,9 +94,8 @@
     </tr>
   </thead>
 
+  <!-- FOREACH CYCLE ON HOTELS VAR -->
   <tbody>
-    
-    
         <?php foreach ($hotels as $hotel) : ?>
             <tr>
                 <td><?= $hotel['name']?></td>
@@ -82,9 +105,6 @@
                 <td><?= $hotel['distance_to_center']?></td>
             </tr>
         <?php endforeach; ?>
-    
-    
-   
   </tbody>
 </table>
 

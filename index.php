@@ -98,11 +98,11 @@ if (array_key_exists("parking", $hotels) ){
   <tbody>
         <?php foreach ($hotels as $hotel) : ?>
             <tr>
-                <td><?= $hotel['name']?></td>
-                <td><?= $hotel['description']?></td>
-                <td><?= $hotel['parking']?></td>
-                <td><?= $hotel['vote']?></td>
-                <td><?= $hotel['distance_to_center']?></td>
+                <td><?php $hotel['name']?></td>
+                <td><?php $hotel['description']?></td>
+                <td><?php $hotel['parking']?></td>
+                <td><?php $hotel['vote']?></td>
+                <td><?php $hotel['distance_to_center']?></td>
             </tr>
         <?php endforeach; ?>
   </tbody>

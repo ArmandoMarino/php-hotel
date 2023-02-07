@@ -40,15 +40,10 @@
 
     ];
 
+// VALUE OF SELECT PARKING
 $select_parking = $_GET['select-parking'] ?? '';
 
-
-$has_parking = false;
-    
-if (array_key_exists("parking", $hotels) ){
-    $has_parking = true;
-}
-
+// FLAG ALPHA
 $has_parking = false;
 
 if (array_key_exists("parking", $hotels) ){

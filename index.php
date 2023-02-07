@@ -44,7 +44,6 @@
 $select_parking = $_GET['select-parking'] ?? '';
 
 // FLAG ALPHA
-$has_parking = false;
 
 if (array_key_exists("parking", $hotels) ){
     $has_parking = true;
@@ -67,11 +66,10 @@ if (array_key_exists("parking", $hotels) ){
 <body class="container">
 
 <form action="" method="GET">
-    <h4>Filtra gli Hotel con parcheggio o senza</h4>
+    <h4>Filtra gli Hotel con parcheggio</h4>
     <select name="select-parking" class="form-select" >
         <option selected>---</option>
         <option value="parking" >Con parcheggio</option>
-        <option value="no-parking">Senza parcheggio</option>
     </select>
     <button type="submit" class="btn btn-primary">Cerca</button>
 </form>
@@ -101,7 +99,8 @@ if (array_key_exists("parking", $hotels) ){
                 <td><?= $hotel['distance_to_center']?></td>
             </tr>
         <?php endforeach; ?>
-    <?php else : ?>
+
+    <?php elseif ($select_parking = 'parking') : ?>
         <?php foreach ($hotels as $hotel) : ?>
             <tr>
                 <td><?= $hotel['name']?></td>
@@ -111,9 +110,11 @@ if (array_key_exists("parking", $hotels) ){
                 <td><?= $hotel['distance_to_center']?></td>
             </tr>
         <?php endforeach; ?>
+    <?php endif ?>
   </tbody>
+
 </table>
-<?php endif ?>
+
 
 </body>
 </html>

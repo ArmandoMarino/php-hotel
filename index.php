@@ -91,6 +91,7 @@ if (array_key_exists("parking", $hotels) ){
 
   <!-- FOREACH CYCLE ON HOTELS VAR -->
   <tbody>
+    <?php if (empty($_GET)) : ?>
         <?php foreach ($hotels as $hotel) : ?>
             <tr>
                 <td><?= $hotel['name']?></td>
@@ -100,8 +101,19 @@ if (array_key_exists("parking", $hotels) ){
                 <td><?= $hotel['distance_to_center']?></td>
             </tr>
         <?php endforeach; ?>
+    <?php else : ?>
+        <?php foreach ($hotels as $hotel) : ?>
+            <tr>
+                <td><?= $hotel['name']?></td>
+                <td><?= $hotel['description']?></td>
+                <td> IDEA </td> 
+                <td><?= $hotel['vote']?></td>
+                <td><?= $hotel['distance_to_center']?></td>
+            </tr>
+        <?php endforeach; ?>
   </tbody>
 </table>
+<?php endif ?>
 
 </body>
 </html>

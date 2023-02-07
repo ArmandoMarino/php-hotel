@@ -40,11 +40,38 @@
 
     ];
 
+
+    $hotels_parking =[
+    [
+        'name' => 'Hotel Belvedere',
+        'description' => 'Hotel Belvedere Descrizione',
+        'parking' => true,
+        'vote' => 4,
+        'distance_to_center' => 10.4
+    ],
+    [
+        'name' => 'Hotel Futuro',
+        'description' => 'Hotel Futuro Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 2
+    ],
+    [
+        'name' => 'Hotel Milano',
+        'description' => 'Hotel Milano Descrizione',
+        'parking' => true,
+        'vote' => 2,
+        'distance_to_center' => 50
+    ]
+    ];
+
+    // var_dump($hotels_parking);
+
 // VALUE OF SELECT PARKING
 $select_parking = $_GET['select-parking'] ?? '';
 
 // FLAG ALPHA
-
+$has_parking= false;
 if (array_key_exists("parking", $hotels) ){
     $has_parking = true;
 }
@@ -101,11 +128,11 @@ if (array_key_exists("parking", $hotels) ){
         <?php endforeach; ?>
 
     <?php elseif ($select_parking = 'parking') : ?>
-        <?php foreach ($hotels as $hotel) : ?>
+        <?php foreach ($hotels_parking as $hotel) : ?>
             <tr>
                 <td><?= $hotel['name']?></td>
                 <td><?= $hotel['description']?></td>
-                <td> IDEA </td> 
+                <td><?= $hotel['parking']?></td>
                 <td><?= $hotel['vote']?></td>
                 <td><?= $hotel['distance_to_center']?></td>
             </tr>
